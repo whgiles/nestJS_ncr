@@ -4,7 +4,6 @@ import { ItemAvailabilityModule } from './item-availability/item-availability.mo
 import { MenuModule } from './menu/menu.module';
 
 @Module({
-  providers: [CatalogModule, ItemAvailabilityModule, MenuModule],
-  imports: [CatalogModule, ItemAvailabilityModule, MenuModule],
+  imports: [CatalogModule, ItemAvailabilityModule, MenuModule]
 })
-export class DomainModule {}
+export class Module {}
