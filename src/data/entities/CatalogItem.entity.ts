@@ -1,4 +1,4 @@
-export interface Item {
+export default class Item {
   version: number;
 
   itemId: {
@@ -27,11 +27,8 @@ export interface Item {
   };
 
   departmentId: string;
-
   familyCode: string;
-
   manufacturerCode: string;
-
   nonMerchandise: boolean;
 
   externalIdentifiers: {
