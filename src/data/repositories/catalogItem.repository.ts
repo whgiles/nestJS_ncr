@@ -162,6 +162,6 @@ export class TempCatalogItemRepository {
       (item) => item.itemId.itemCode === id,
     );
     this.inMemoryDB.splice(index, 1);
-    console.log('item updated successfully in repository latter');
+    console.log('item was successfully removed from in memory DB');
   }
 }
