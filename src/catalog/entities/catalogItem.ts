@@ -27,8 +27,11 @@ export interface Item {
   };
 
   departmentId: string;
+
   familyCode: string;
+
   manufacturerCode: string;
+
   nonMerchandise: boolean;
 
   externalIdentifiers: {
@@ -40,16 +43,3 @@ export interface Item {
 
   referenceId: string;
 }
-
-// class A implements Item {
-//     version: number;
-//     itemId: { itemCode: string; };
-
-// }
-
-// const a: A = {
-//     version: 2,
-//     itemId: {
-//         itemCode: 'asdg'
-//     }
-// }
