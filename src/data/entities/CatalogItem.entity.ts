@@ -1,4 +1,4 @@
-export interface Item {
+export default class Item {
   version: number;
 
   itemId: {
@@ -40,16 +40,3 @@ export interface Item {
 
   referenceId: string;
 }
-
-// class A implements Item {
-//     version: number;
-//     itemId: { itemCode: string; };
-
-// }
-
-// const a: A = {
-//     version: 2,
-//     itemId: {
-//         itemCode: 'asdg'
-//     }
-// }
