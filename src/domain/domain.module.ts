@@ -1,10 +1,19 @@
 import { Module } from '@nestjs/common';
-import { CatalogModule } from './catalog/catalog.module';
-import { ItemAvailabilityModule } from './item-availability/item-availability.module';
-import { MenuModule } from './menu/menu.module';
+import { DomainCatalogModule } from './domain.catalog/catalog.module';
+import { DomainItemAvailabilityModule } from './domain.item-availability/item-availability.module';
+import { DomainMenuModule } from './domain.menu/menu.module';
 
 @Module({
-  providers: [CatalogModule, ItemAvailabilityModule, MenuModule],
-  imports: [CatalogModule, ItemAvailabilityModule, MenuModule],
+  // providers: [CatalogModule, ItemAvailabilityModule, MenuModule],
+  imports: [
+    DomainCatalogModule,
+    DomainItemAvailabilityModule,
+    DomainMenuModule,
+  ],
+  exports: [
+    DomainCatalogModule,
+    DomainItemAvailabilityModule,
+    DomainMenuModule,
+  ],
 })
 export class DomainModule {}

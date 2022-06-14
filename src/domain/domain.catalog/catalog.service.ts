@@ -7,7 +7,7 @@ export class CatalogService {
   private catalogItemRepository;
 
   constructor(catalogItemRepository: TempCatalogItemRepository) {
-    this, (catalogItemRepository = catalogItemRepository);
+    this.catalogItemRepository = catalogItemRepository;
   }
 
   findAllItems() {

@@ -136,17 +136,21 @@ export class TempCatalogItemRepository {
 
   async retrieveAllItems(): Promise<Item[]> {
     const results = await this.inMemoryDB;
+    console.log('retrieveed All Items from in Memory DB');
     return results;
   }
 
   async retrieveItembyId(id: string): Promise<Item | string> {
     const result = this.inMemoryDB.find((item) => item.itemId.itemCode === id);
+    console.log(`Item with id = ${id} was retrieved from in memory DB`);
     if (result) return result;
   }
 
-  async insertItem(item: Item): Promise<string> {
+  async insertItem(item: Item): Promise<void> {
     await this.inMemoryDB.push(item);
-    return `${item.itemId.itemCode} successfull inserted in memory database`;
+    console.log(
+      `${item.itemId.itemCode} successfull inserted in memory database`,
+    );
   }
 
   updateItembyId(id: string, item: Item): void {
