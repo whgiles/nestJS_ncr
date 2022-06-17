@@ -9,7 +9,6 @@ import {
 } from 'class-validator';
 import { MultiLanguageDataDto, NodeIdDataDto, status } from '../../types/types';
 import { AutoMap } from 'nestjsx-automapper';
-import { IItem } from 'src/domain/domain.catalog/models/IItem';
 
 export class CreateItemDto {
   itemId?: string;

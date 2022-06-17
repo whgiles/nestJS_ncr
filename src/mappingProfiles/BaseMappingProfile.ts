@@ -11,7 +11,7 @@ import {
   IMultiLanguageData,
   INodeIdData,
 } from 'src/domain/domain.catalog/models/types';
-import { BSLItemResponse } from 'src/utils/models/BslItems';
+import { BSLItemRequest, BSLItemResponse } from 'src/utils/models/BslItems';
 import {
   BslLocalizedTextData,
   BslMultiLanguageData,
@@ -31,5 +31,7 @@ export class BaseMappingProfile extends ProfileBase {
     mapper.createMap(ILocalizedTextData, LocalizedTextDataDto).reverseMap();
     mapper.createMap(BslMultiLanguageData, IMultiLanguageData).reverseMap();
     mapper.createMap(IMultiLanguageData, MultiLanguageDataDto).reverseMap();
+
+    mapper.createMap(IItem, BSLItemRequest);
   }
 }

@@ -3,7 +3,6 @@ import { BSLClient } from 'src/utils/BSL/BSLClient.util';
 import { IItem } from './models/IItem';
 import { InjectMapper, AutoMapper } from 'nestjsx-automapper';
 import { BSLItemRequest, BSLItemResponse } from 'src/utils/models/BslItems';
-import { CreateItemDto } from 'src/api/api.catalog/dtos/request/createItem.request.dto';
 
 @Injectable()
 export class CatalogService {

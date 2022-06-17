@@ -2,20 +2,16 @@ import {
   Body,
   Controller,
   Get,
-  HttpException,
-  HttpStatus,
-  Injectable,
   Param,
   Post,
-  Req,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { CatalogService } from 'src/domain/domain.catalog/catalog.service';
 import { CreateItemDto } from './dtos/request/createItem.request.dto';
-import { IItem } from 'src/domain/domain.catalog/models/IItem';
 import { ItemResponseDto } from './dtos/response/item.response.dto';
 import { InjectMapper, AutoMapper } from 'nestjsx-automapper';
+import { ApiMapper } from '../api.mappers/mappers';
 
 @Controller('catalog')
 export class CatalogController {
@@ -40,8 +36,7 @@ export class CatalogController {
     }),
   )
   addItem(@Param('id') itemId: string, @Body() createItemDto: CreateItemDto) {
-    const data = this.mapper.map(createItemDto, IItem);
-    console.log('here');
+    const data = new ApiMapper().dtoToIitem(createItemDto);
     this.catalogService.insertItem(data, itemId);
   }
 }
