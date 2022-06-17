@@ -1,32 +1,46 @@
 import { Injectable } from '@nestjs/common';
-import { TempCatalogItemRepository } from 'src/data/repositories/catalogItem.repository';
-import { IItem } from './models/types';
+import { BSLClient } from 'src/utils/BSL/BSLClient.util';
+import { IItem } from './models/IItem';
+import { InjectMapper } from 'nestjsx-automapper';
+import { AutoMapper } from '@nartc/automapper';
+import { BSLItemResponse } from 'src/utils/models/BslItems';
+import { AutoMap } from '@automapper/classes';
+import { createMapper } from '@automapper/core';
+import { classes } from '@automapper/classes';
+import { createMap } from '@automapper/core';
+import { CreateItemDto } from 'src/api/api.catalog/dtos/request/createItem.request.dto';
 
 @Injectable()
 export class CatalogService {
-  private catalogItemRepository;
+  constructor(private bslClient: BSLClient) {}
 
-  constructor(catalogItemRepository: TempCatalogItemRepository) {
-    this.catalogItemRepository = catalogItemRepository;
+  /* 
+  Returns all Items in BSLClient's DataBase.
+  */
+  async getAllItems(): Promise<IItem[]> {
+    const mapper = createMapper({
+      strategyInitializer: classes(),
+    });
+    createMap(mapper, BSLItemResponse, IItem);
+
+    const data = await this.bslClient.getAllItems();
+    return data.map((item) => mapper.map(item, BSLItemResponse, IItem));
   }
 
-  findAllItems() {
-    return this.catalogItemRepository.retrieveAllItems();
+  async insertItem(
+    createItemDto: CreateItemDto,
+    itemId: string,
+  ): Promise<void> {
+    // const mapper = createMapper({
+    //   strategyInitializer: classes(),
+    // });
+    // createMap(mapper, CreateItemDto, IItem);
+    // const item = mapper.map(createItemDto, CreateItemDto, IItem);
+
+    this.bslClient.postItem(createItemDto, itemId);
   }
 
-  findItemById(id: string) {
-    return this.catalogItemRepository.retrieveItembyId(id);
-  }
+  updateItembyId(id: string) {}
 
-  insertItem(item: IItem) {
-    return this.catalogItemRepository.insertItem();
-  }
-
-  updateItembyId(id: string) {
-    this.catalogItemRepository.updateItembyId();
-  }
-
-  removeItemById(id: string) {
-    this.catalogItemRepository.removeItemById();
-  }
+  removeItemById(id: string) {}
 }
