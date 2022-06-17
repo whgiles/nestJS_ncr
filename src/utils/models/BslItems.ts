@@ -1,19 +1,15 @@
-import { AutoMap } from '@automapper/classes';
-import {
-  // MultiLanguageData,
-  //  NodeIdData,
-  status,
-} from './types';
+import { AutoMap } from 'nestjsx-automapper';
+import { BslMultiLanguageData, BslNodeIdData, status } from './types';
 
 export class BSLItemRequest {
   @AutoMap()
   version: number;
 
-  // @AutoMap(() => MultiLanguageData)
-  // shortDescription: MultiLanguageData;
+  @AutoMap(() => BslMultiLanguageData)
+  shortDescription: BslMultiLanguageData;
 
-  // @AutoMap(() => NodeIdData)
-  // merchandiseCategory: NodeIdData;
+  @AutoMap(() => BslNodeIdData)
+  merchandiseCategory: BslNodeIdData;
 
   @AutoMap()
   status: status;
@@ -32,11 +28,11 @@ export class BSLItemResponse {
   @AutoMap()
   version: number;
 
-  // @AutoMap(() => MultiLanguageData)
-  // shortDescription: MultiLanguageData;
+  @AutoMap(() => BslMultiLanguageData)
+  shortDescription: BslMultiLanguageData;
 
-  // @AutoMap(() => NodeIdData)
-  // merchandiseCategory: NodeIdData;
+  @AutoMap(() => BslNodeIdData)
+  merchandiseCategory: BslNodeIdData;
 
   @AutoMap()
   status: status;

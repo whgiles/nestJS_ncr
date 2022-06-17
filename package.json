@@ -21,13 +21,17 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@nartc/automapper": "^7.0.4",
     "@nestjs/axios": "^0.0.8",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^2.1.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "crypto-js": "^4.1.1",
     "js-base64": "^3.7.2",
+    "nestjsx-automapper": "^3.1.4",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0"

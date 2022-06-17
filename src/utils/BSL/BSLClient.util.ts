@@ -31,11 +31,9 @@ A url and configuration are created in the method.
 The BSLItemRequest is persist in the BLSClient database.
 */
   async postItem(payload: BSLItemRequest, id: string): Promise<void> {
-    console.log('postItem() started');
     const url = process.env.CATALOG_ITEMS_SERVICE + `/items/${id}`;
     const config = new BSLconfig(url, methods.PUT).getConfig();
     const r = await this.axiosClient.put(url, payload, config);
-    console.log('postItem() finished');
   }
 
   updateItemInBSL() {}

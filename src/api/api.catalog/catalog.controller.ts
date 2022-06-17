@@ -4,6 +4,7 @@ import {
   Get,
   HttpException,
   HttpStatus,
+  Injectable,
   Param,
   Post,
   Req,
@@ -12,28 +13,23 @@ import {
 } from '@nestjs/common';
 import { CatalogService } from 'src/domain/domain.catalog/catalog.service';
 import { CreateItemDto } from './dtos/request/createItem.request.dto';
-import { createMapper } from '@automapper/core';
-import { classes } from '@automapper/classes';
-import { createMap } from '@automapper/core';
 import { IItem } from 'src/domain/domain.catalog/models/IItem';
 import { ItemResponseDto } from './dtos/response/item.response.dto';
+import { InjectMapper, AutoMapper } from 'nestjsx-automapper';
 
 @Controller('catalog')
 export class CatalogController {
-  constructor(private catalogService: CatalogService) {
+  constructor(
+    private catalogService: CatalogService,
+    @InjectMapper() private readonly mapper: AutoMapper,
+  ) {
     this.catalogService = catalogService;
   }
 
   @Get('items')
   async getAllItems(): Promise<ItemResponseDto[]> {
-    const mapper = createMapper({
-      strategyInitializer: classes(),
-    });
-    createMap(mapper, IItem, ItemResponseDto);
-
     const data = await this.catalogService.getAllItems();
-
-    return data.map((item) => mapper.map(item, IItem, ItemResponseDto));
+    return data.map((item) => this.mapper.map(item, ItemResponseDto));
   }
 
   @Post('/items/:id')
@@ -44,8 +40,8 @@ export class CatalogController {
     }),
   )
   addItem(@Param('id') itemId: string, @Body() createItemDto: CreateItemDto) {
-    console.log('addItem() called from api');
-    console.log(createItemDto);
-    this.catalogService.insertItem(createItemDto, itemId);
+    const data = this.mapper.map(createItemDto, IItem);
+    console.log('here');
+    this.catalogService.insertItem(data, itemId);
   }
 }

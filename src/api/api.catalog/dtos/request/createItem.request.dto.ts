@@ -7,8 +7,9 @@ import {
   IsBoolean,
   IsNotEmptyObject,
 } from 'class-validator';
-import { MultiLanguageData, NodeIdData, status } from '../../types/types';
+import { MultiLanguageDataDto, NodeIdDataDto, status } from '../../types/types';
 import { AutoMap } from 'nestjsx-automapper';
+import { IItem } from 'src/domain/domain.catalog/models/IItem';
 
 export class CreateItemDto {
   itemId?: string;
@@ -20,15 +21,15 @@ export class CreateItemDto {
 
   @IsNotEmptyObject()
   @ValidateNested()
-  @Type(() => MultiLanguageData)
-  @AutoMap(() => MultiLanguageData)
-  shortDescription: MultiLanguageData;
+  @Type(() => MultiLanguageDataDto)
+  @AutoMap(() => MultiLanguageDataDto)
+  shortDescription: MultiLanguageDataDto;
 
   @IsNotEmptyObject()
   @ValidateNested()
-  @Type(() => NodeIdData)
-  @AutoMap(() => NodeIdData)
-  merchandiseCategory: NodeIdData;
+  @Type(() => NodeIdDataDto)
+  @AutoMap(() => NodeIdDataDto)
+  merchandiseCategory: NodeIdDataDto;
 
   @IsNotEmpty()
   @IsString()
