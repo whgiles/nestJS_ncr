@@ -7,6 +7,9 @@ import {
 
 export class ItemResponseDto {
   @AutoMap()
+  itemId: string;
+
+  @AutoMap()
   version: number;
 
   // @AutoMap(() => MultiLanguageData)

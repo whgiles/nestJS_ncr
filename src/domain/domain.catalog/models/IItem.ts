@@ -7,7 +7,7 @@ import {
 
 export class IItem {
   @AutoMap()
-  itemId?: string;
+  itemId: string;
 
   @AutoMap()
   version: number;

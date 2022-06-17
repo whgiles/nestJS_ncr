@@ -25,6 +25,7 @@ export class UtilMapper {
     bslItemResponse.status = json.status;
     bslItemResponse.departmentId = json.departmentId;
     bslItemResponse.nonMerchandise = json.nonMerchandise;
+    bslItemResponse.itemId = json.itemId.itemCode;
 
     return bslItemResponse;
   }

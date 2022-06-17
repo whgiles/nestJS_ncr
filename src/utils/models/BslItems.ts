@@ -27,7 +27,7 @@ export class BSLItemRequest {
 
 export class BSLItemResponse {
   @AutoMap()
-  itemId?: string;
+  itemId: string;
 
   @AutoMap()
   version: number;

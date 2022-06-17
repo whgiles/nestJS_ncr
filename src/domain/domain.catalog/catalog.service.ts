@@ -24,7 +24,6 @@ export class CatalogService {
     createMap(mapper, BSLItemResponse, IItem);
 
     const data = await this.bslClient.getAllItems();
-
     return data.map((item) => mapper.map(item, BSLItemResponse, IItem));
   }
 
