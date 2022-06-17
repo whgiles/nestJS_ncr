@@ -1,8 +1,8 @@
 import { AutoMap } from '@automapper/classes';
 
 // export class MultiLanguageData {
-//   @AutoMap(() => LocalizedTextData)
-//   values: LocalizedTextData[];
+// @AutoMap(() => LocalizedTextData)
+// values: LocalizedTextData[];
 // }
 
 // export class LocalizedTextData {

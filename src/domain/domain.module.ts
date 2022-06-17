@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { UtilsModule } from 'src/utils/utils.module';
 import { DomainCatalogModule } from './domain.catalog/catalog.module';
 import { DomainItemAvailabilityModule } from './domain.item-availability/item-availability.module';
 import { DomainMenuModule } from './domain.menu/menu.module';
@@ -9,6 +10,7 @@ import { DomainMenuModule } from './domain.menu/menu.module';
     DomainCatalogModule,
     DomainItemAvailabilityModule,
     DomainMenuModule,
+    UtilsModule,
   ],
   exports: [
     DomainCatalogModule,
