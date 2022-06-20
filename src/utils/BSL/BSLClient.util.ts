@@ -39,4 +39,8 @@ The BSLItemRequest is persist in the BLSClient database.
   updateItemInBSL() {}
 
   removeItemInBSL(id: string): void {}
+
+  setItemAvailability() {
+    return 'BSL: setItemAvailability() called';
+  }
 }
