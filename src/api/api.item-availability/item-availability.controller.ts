@@ -7,8 +7,7 @@ export class ItemAvailabilityController {
 
   @Put(':id')
   setItemAvailability(@Param('id') itemId: string, @Body() payload: any) {
-    console.log(this.itemAvailabilityService.setItemAvailability());
-
+    console.log(this.itemAvailabilityService.setItemAvailability(itemId));
     console.log('API: setItemAvilability() called');
     return 'API: setItemAvilability() called';
   }
