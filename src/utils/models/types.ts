@@ -1,22 +1,22 @@
-import { AutoMap } from '@automapper/classes';
+import { AutoMap } from 'nestjsx-automapper';
 
-// export class MultiLanguageData {
-// @AutoMap(() => LocalizedTextData)
-// values: LocalizedTextData[];
-// }
+export class BslMultiLanguageData {
+  @AutoMap(() => BslLocalizedTextData)
+  values: BslLocalizedTextData[];
+}
 
-// export class LocalizedTextData {
-//   @AutoMap()
-//   locale: string;
+export class BslLocalizedTextData {
+  @AutoMap()
+  locale: string;
 
-//   @AutoMap()
-//   value: string;
-// }
+  @AutoMap()
+  value: string;
+}
 
-// export class NodeIdData {
-// @AutoMap()
-// nodeId: string;
-// }
+export class BslNodeIdData {
+  @AutoMap()
+  nodeId: string;
+}
 
 export enum status {
   INACTIVE = 'INACTIVE',

@@ -1,9 +1,5 @@
-import { AutoMap } from '@automapper/classes';
-import {
-  // MultiLanguageData,
-  // NodeIdData,
-  status,
-} from './types';
+import { AutoMap } from 'nestjsx-automapper';
+import { IMultiLanguageData, INodeIdData, status } from './types';
 
 export class IItem {
   @AutoMap()
@@ -12,11 +8,11 @@ export class IItem {
   @AutoMap()
   version: number;
 
-  // @AutoMap(() => MultiLanguageData)
-  // shortDescription: MultiLanguageData;
+  @AutoMap(() => IMultiLanguageData)
+  shortDescription: IMultiLanguageData;
 
-  // @AutoMap(() => NodeIdData)
-  // merchandiseCategory: NodeIdData;
+  @AutoMap(() => INodeIdData)
+  merchandiseCategory: INodeIdData;
 
   @AutoMap()
   status: status;

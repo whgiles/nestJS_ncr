@@ -1,7 +1,7 @@
-import { AutoMap } from '@automapper/classes';
+import { AutoMap } from 'nestjsx-automapper';
 import {
-  // MultiLanguageData,
-  //  NodeIdData,
+  MultiLanguageDataDto,
+  NodeIdDataDto,
   status,
 } from 'src/api/api.catalog/types/types';
 
@@ -12,34 +12,11 @@ export class ItemResponseDto {
   @AutoMap()
   version: number;
 
-  // @AutoMap(() => MultiLanguageData)
-  // shortDescription: MultiLanguageData;
+  @AutoMap(() => MultiLanguageDataDto)
+  shortDescription: MultiLanguageDataDto;
 
-  // @AutoMap(() => NodeIdData)
-  // merchandiseCategory: NodeIdData;
-
-  @AutoMap()
-  status: status;
-
-  @AutoMap()
-  departmentId: string;
-
-  @AutoMap()
-  nonMerchandise: boolean;
-}
-
-export class BSLItemResponse {
-  @AutoMap()
-  itemId?: string;
-
-  @AutoMap()
-  version: number;
-
-  // @AutoMap(() => MultiLanguageData)
-  // shortDescription: MultiLanguageData;
-
-  // @AutoMap(() => NodeIdData)
-  // merchandiseCategory: NodeIdData;
+  @AutoMap(() => NodeIdDataDto)
+  merchandiseCategory: NodeIdDataDto;
 
   @AutoMap()
   status: status;

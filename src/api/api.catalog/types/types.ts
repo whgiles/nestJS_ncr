@@ -1,25 +1,30 @@
 import { Type } from 'class-transformer';
 import { ValidateNested, IsNotEmpty, IsString } from 'class-validator';
+import { AutoMap } from 'nestjsx-automapper';
 
-export class MultiLanguageData {
+export class MultiLanguageDataDto {
   @ValidateNested({ each: true })
-  @Type(() => LocalizedTextData)
-  values: LocalizedTextData[];
+  @Type(() => LocalizedTextDataDto)
+  @AutoMap(() => LocalizedTextDataDto)
+  values: LocalizedTextDataDto[];
 }
 
-export class LocalizedTextData {
+export class LocalizedTextDataDto {
   @IsNotEmpty()
   @IsString()
+  @AutoMap()
   locale: string;
 
   @IsNotEmpty()
   @IsString()
+  @AutoMap()
   value: string;
 }
 
-export class NodeIdData {
+export class NodeIdDataDto {
   @IsNotEmpty()
   @IsString()
+  @AutoMap()
   nodeId: string;
 }
 
