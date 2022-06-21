@@ -47,8 +47,16 @@ The BSLItemRequest is persist in the BLSClient database.
     const url = `https://api.ncr.com/ias/v1/item-availability/${id}`;
     const config = new BslService().getConfig(methods.PUT, url);
     const payload = this.mapper.map(iitemAvailability, BslItemAvailability);
-    console.log(payload);
+    // console.log(payload);
     const r = await this.axiosClient.put(url, payload, config);
-    console.log('bslClient', r.data);
+    // console.log('bslClient', r.data);
+  }
+
+  async getItemAvailability(id: string) {
+    const url = `https://api.ncr.com/ias/v1/item-availability/${id}`;
+    const config = new BslService().getConfig(methods.GET, url);
+    const r = await this.axiosClient.get(url, config);
+
+    return r.data;
   }
 }

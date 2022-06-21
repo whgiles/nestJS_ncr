@@ -5,6 +5,7 @@ import {
   Body,
   UsePipes,
   ValidationPipe,
+  Get,
 } from '@nestjs/common';
 import { AutoMapper, InjectMapper } from 'nestjsx-automapper';
 import { ItemAvailabilityService } from 'src/domain/domain.item-availability/item-availability.service';
@@ -48,5 +49,9 @@ export class ItemAvailabilityController {
     res.lastUpdated = new Date();
 
     return res;
+  }
+  @Get(':id')
+  getItemAvailability(@Param('id') id: string) {
+    return this.itemAvailabilityService.getItemAvailability(id);
   }
 }

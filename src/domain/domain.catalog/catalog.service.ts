@@ -21,7 +21,7 @@ export class CatalogService {
 
   async insertItem(item: IItem, itemId: string): Promise<void> {
     const data = this.mapper.map(item, BSLItemRequest);
-    this.bslClient.postItem(data, itemId);
+    await this.bslClient.postItem(data, itemId);
   }
 
   updateItembyId(id: string) {}

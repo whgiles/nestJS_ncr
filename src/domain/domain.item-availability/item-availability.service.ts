@@ -33,4 +33,8 @@ export class ItemAvailabilityService {
     const r = await this.axiosClient.post(url, itemAvailability);
     console.log(r.data);
   }
+
+  async getItemAvailability(id: string) {
+    return this.bslClient.getItemAvailability(id);
+  }
 }

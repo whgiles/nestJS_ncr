@@ -13,6 +13,9 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# Removing ENV variables
+RUN rm .env
+
 # Creates a "dist" folder with the production build
 RUN npm run build
 
