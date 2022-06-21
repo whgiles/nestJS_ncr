@@ -14,7 +14,9 @@ import './mappingProfiles/BaseMappingProfile';
     DomainModule,
     DataModule,
     UtilsModule,
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     AutomapperModule.withMapper(),
   ],
   providers: [BSLClient],

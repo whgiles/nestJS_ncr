@@ -4,8 +4,10 @@ import {
   IMultiLanguageData,
   INodeIdData,
 } from 'src/domain/domain.catalog/models/types';
+import { IItemAvailability } from 'src/domain/domain.item-availability/models/IItemAvailability';
 import { CreateItemDto } from '../api.catalog/dtos/request/createItem.request.dto';
 import { MultiLanguageDataDto } from '../api.catalog/types/types';
+import { CreateItemAvailabilityDto } from '../api.item-availability/dtos/Request.dtos/createItemAvailability.dto';
 
 export class ApiMapper {
   dtoToIitem(dto: CreateItemDto): IItem {
@@ -46,5 +48,12 @@ export class ApiMapper {
     );
     iMultiLanguageData.values = iLocalizedTextDataArray;
     return iMultiLanguageData;
+  }
+
+  dtoToIIemAvailability(dto: CreateItemAvailabilityDto, id: string) {
+    const itemAvailability = new IItemAvailability();
+    itemAvailability.availableForSale = dto.availableForSale;
+    itemAvailability.id = id;
+    return itemAvailability;
   }
 }
